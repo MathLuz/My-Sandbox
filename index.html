@@ -128,7 +128,7 @@ body .ass{
 	margin: 6px 0 0 6px;
 }
 .formPad .boxBot div .nao{
-	transition: 0.3s;   /* Velocidade do "Não" */
+	transition: 0.3s;     /* Velocidade do "Não" */
 	position: absolute;
 	background:#333;
 	color: #f77;
@@ -138,6 +138,7 @@ body .ass{
 	background:#00000000;
 	color: #00000000;
 	box-shadow:none;
+	cursor: defalt;
 }
 .formPad .respSim{
 	display: none;
@@ -158,6 +159,27 @@ body .ass{
 .formSim .boxBot, .formSim .boxPergunta{
 	display:none;
 }
+.formPad #refresh{display:none}
+.formSim #refresh{
+	opacity: 0.4;
+	filter: invert(1);
+	border-radius: 100px;
+	width: 50px;
+	position: absolute;
+	top: -70px;
+	left: 0;
+}
+#refresh .imgRefresh{
+	height: 50px;
+	transform: scaleX(-1);
+}
+
+#refresh .imgRefresh:hover{
+	rotate: -360deg;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
 
 	</style>
 </head>
@@ -170,11 +192,11 @@ body .ass{
 
 <form class="formPad" id="form">
 	<div class="boxPergunta">
-		<p>♥ ♦ ♣ ♠</p>
+		<p>Me transfere para o TI?</p>
 	</div>
 	<div class="boxBot">
 		<div>
-			<a class="sim but" onClick="sim()">Sim</a>
+			<div class="sim but" onClick="sim()">Sim</div>
 		</div>
 		<div>
 			<div class="nao but" id="nao" onMouseOver="correNao()">Não</div>
@@ -184,6 +206,8 @@ body .ass{
 	<div class="respSim">
 		<div>*-*</div>
 	</div>
+
+	<div id="refresh"><img onClick="refresh()" class="imgRefresh" src="refresh.png"></div>
 
 	<script>
 
@@ -212,15 +236,30 @@ body .ass{
 	const trocaIdForm = document.getElementById("form");
 		trocaIdForm.classList.remove("formPad");
 		trocaIdForm.classList.add("formSim");
-
 		}
+
+	// Função recarregar o form
+
+		function refresh(){
+
+	const trocaIdConfete = document.getElementById("confete");
+		trocaIdConfete.classList.add("confeteOff");
+
+	const trocaIdForm = document.getElementById("form");
+		trocaIdForm.classList.remove("formSim");
+		trocaIdForm.classList.add("formPad");
+		
+	const idnao = document.getElementById('nao');
+		idnao.style.cssText = '';
+	}
+
 
 	// Script Confete
 
        // Configurações
       var maxConfetti = 150;  // Número máximo de confetes
       var particleSpeed = 4; //  Velocidade dos confetes
-      var particleSize = 7; //   Tamanho dos confetes
+      var particleSize = 6; //   Tamanho dos confetes
 
        // Cria o canvas
       var canvas = document.getElementById("confete");
