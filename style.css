@@ -86,6 +86,7 @@ body .ass {
 
 .formPad .boxBot {
     height: 30%
+    user-select: none;
 }
 
 .formPad .boxBot div {
