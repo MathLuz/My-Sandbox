@@ -12,17 +12,19 @@ function correNao() {
   var alturaNao = idnao.offsetHeight;
 
   // Alcance do botão
-  var minX = -(larguraViewport/2 - larguraNao);
-  var minY = -(alturaViewport/2 - alturaNao);
-  var maxX = larguraViewport/2 - larguraNao;
-  var maxY = alturaViewport/2 - alturaNao;
+  var mer = 0.1;
+  var minX = -((larguraViewport/2-mer) - larguraNao);
+  var minY = -((alturaViewport/2-mer) - alturaNao);
+  var maxX = (larguraViewport/2+mer) - larguraNao;
+  var maxY = (alturaViewport/2+mer) - alturaNao;
 
   var numX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
   var numY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
 
+  console.log(numX + " - " + numY);
+
   idnao.style.cssText = 'top:' + numY + 'px;' + 'left:' + numX + 'px';
 }
-
 
 // Função para o botão "sim" mostrar a resposa trocando as class
 
