@@ -3,15 +3,26 @@
 function correNao() {
   const idnao = document.getElementById('nao');
 
-  // Alcance do botão
-  var max = 700;
-  var min = -400;
+  // Dimensões da viewport
+  var larguraViewport = window.innerWidth || document.documentElement.clientWidth;
+  var alturaViewport = window.innerHeight || document.documentElement.clientHeight;
 
-  var numX = Math.floor(Math.random() * max) + min;
-  var numY = Math.floor(Math.random() * max) + min;
+  // Dimensões da div não
+  var larguraNao = idnao.offsetWidth;
+  var alturaNao = idnao.offsetHeight;
+
+  // Alcance do botão
+  var minX = -(larguraViewport/2 - larguraNao);
+  var minY = -(alturaViewport/2 - alturaNao);
+  var maxX = larguraViewport/2 - larguraNao;
+  var maxY = alturaViewport/2 - alturaNao;
+
+  var numX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+  var numY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
 
   idnao.style.cssText = 'top:' + numY + 'px;' + 'left:' + numX + 'px';
 }
+
 
 // Função para o botão "sim" mostrar a resposa trocando as class
 
