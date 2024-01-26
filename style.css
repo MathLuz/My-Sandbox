@@ -1,5 +1,8 @@
 * {
     border-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
 
 @keyframes gradient {
@@ -20,9 +23,9 @@ html {
     background: linear-gradient(135deg, #0bd, #002 45% 60%, #d55);
     background-size: 150%;
     animation: gradient 15s ease infinite;
+    font-family: "Nunito", sans-serif;
     height: 100%;
     width: 100%;
-    font-family: verdana;
     color: #eee;
     font-size: 30px;
     display: flex;
@@ -86,18 +89,14 @@ body .ass {
 
 .formPad .boxBot {
     height: 30%;
-    user-select: none;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .formPad .boxBot div {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: relative;
-
 }
 
 .formPad .boxBot div .but {
@@ -109,7 +108,6 @@ body .ass {
     width: 80px;
     font-size: 25px;
     border-radius: 5px;
-    font-family: consolas;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
 }
 
@@ -136,7 +134,7 @@ body .ass {
 }
 
 .formPad .boxBot div .nao {
-    transition: 0.3s;
+    transition: 0.5s;
     /* Velocidade do "Não" */
     position: absolute;
     background: #333;
@@ -148,7 +146,6 @@ body .ass {
     background: #00000000;
     color: #00000000;
     box-shadow: none;
-    cursor: defalt;
 }
 
 .formPad .respSim {
@@ -167,12 +164,9 @@ body .ass {
     text-align: center;
 }
 
-/*.formSim .respSim .rot{
-	transform: rotate(90deg);
-}*/
 .formSim .boxBot,
 .formSim .boxPergunta {
-    display: none;
+    display: none
 }
 
 .formPad #refresh {
