@@ -1,334 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="Matheus Luz">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corre Não</title>
-    <link href="icon.png" rel="icon">
-	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-	<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-	<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Matheus Luz">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Corre Não</title>
+	<link href="icon.png" rel="icon">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-	<style type="text/css">
-
-*{border-style: none;}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 0%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
-html{
-  	background: linear-gradient(135deg, #0bd, #002 45% 60%, #d55);
-  	background-size: 150%;
-  	animation: gradient 15s ease infinite;
-	height: 100%;
-	width: 100%;
-	font-family: verdana;
-	color: #eee;
-    	font-size: 30px;
-    	display: flex;
-    	flex-direction: column;
-    	align-items: center;
-	justify-content: center;
-}
-body{
-	height: 100%;
-    	width: 100%;
-    	display: flex;
-    	flex-direction: column;
-    	align-items: center;
-	justify-content: center;
-}
-body .ass{
-	font-family: 'Dancing Script', cursive;
-	font-size: 30px;
-	position: absolute;
-	right: 10px;
-	bottom: 3px;
-}
-#confete{
-    	top: 0;
-    	left: 0;
-   	width: 100%;
-    	height: 100%;
-}
-.confeteOff{
-	display: none;
-}
-#form{
-	position: absolute;
-    	background-color: #ffffff88;
-	color:#111;
-    	border-radius: 20px;
-    	height: 300px;
-   	width: 700px;
-    	display: flex;
-    	flex-direction: column;
-    	align-items: center;
-}
-.formPad div{
-	display: flex;
-	flex-direction: row;
-	justIfy-content: center;
-	align-items: center;
-	width: 100%;
-}
-.formPad .boxPergunta{
-	height: 50%;
-	text-align: center;
-}
-.formPad .boxBot{height: 30%}
-.formPad .boxBot div{
-	height:100%;
-	width:100%;
-	display:flex;
-	flex-direction: column;
-	justify-content:center;
-	align-items:center;
-	position: relative;
-
-}
-.formPad .boxBot div .but{
-	display:flex;
-	align-items:center;
-	justIfy-content:center;
-	text-decoration:none;
-	height: 50px;
-	width: 80px;
-	font-size: 25px;
-	border-radius: 5px;
-   	font-family: consolas;
-	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
-}
-.formPad .boxBot div .sim{
-	background:#333;
-	color: #0ff;
-	margin: 3px;
-}
-.formPad .boxBot div .sim:hover{
-	transition: 0.4s;
-	font-size: 150%;
-	height: 75%;
-	width: 120px;
-	background:#0ee;
-	color:#000;
-	cursor: pointer;
-}
-.formPad .boxBot div .sim:active{
-	transition: 0.1s;
-	box-shadow: none;
-	margin: 6px 0 0 6px;
-}
-.formPad .boxBot div .nao{
-	transition: 0.3s;     /* Velocidade do "Não" */
-	position: absolute;
-	background:#333;
-	color: #f77;
-	cursor: context-menu;
-}
-.formPad .boxBot div .nao:hover{
-	background:#00000000;
-	color: #00000000;
-	box-shadow:none;
-	cursor: defalt;
-}
-.formPad .respSim{
-	display: none;
-}
-.formSim{
-	display:flex;
-	flex-direction: column;
-	justify-content:center;
-	align-items:center;
-	font-size: 60px;
-}
-.formSim div{
-	text-align: center;
-}
-/*.formSim .respSim .rot{
-	transform: rotate(90deg);
-}*/
-.formSim .boxBot, .formSim .boxPergunta{
-	display:none;
-}
-.formPad #refresh{display:none}
-.formSim #refresh{
-	opacity: 0.4;
-	filter: invert(1);
-	border-radius: 100px;
-	width: 50px;
-	position: absolute;
-	top: -70px;
-	left: 0;
-}
-#refresh .imgRefresh{
-	height: 50px;
-	transform: scaleX(-1);
-}
-
-#refresh .imgRefresh:hover{
-	rotate: -360deg;
-	transition: 0.5s;
-	cursor: pointer;
-}
-
-
-	</style>
 </head>
 
-    <body>
-	    
-		<span class="ass">Mr.Light</span>
+<body>
 
-		<canvas id="confete" class="confeteOff"></canvas>
+	<span class="ass">Mr.Light</span>
 
-<form class="formPad" id="form">
-	<div class="boxPergunta">
-		<p>A</p>
-	</div>
-	<div class="boxBot">
-		<div>
-			<div class="sim but" onClick="sim()">Sim</div>
+	<canvas id="confete" class="confeteOff"></canvas>
+
+	<form class="formPad" id="form">
+		<div class="boxPergunta">
+			<p>[Pergunta inegável]</p>
 		</div>
-		<div>
-			<div class="nao but" id="nao" onMouseOver="correNao()">Não</div>
+		<div class="boxBot">
+			<div>
+				<div class="sim but" onClick="sim()">Sim</div>
+			</div>
+			<div>
+				<div class="nao but" id="nao" onMouseOver="correNao()">Não</div>
+			</div>
 		</div>
-	</div>
 
-	<div class="respSim">
-		<div>Obrigado!!</div>
-	</div>
+		<div class="respSim">
+			<div>Boooa</div>
+		</div>
 
-	<div id="refresh"><img onClick="refresh()" class="imgRefresh" src="refresh.png"></div>
+		<div id="refresh"><img onClick="refresh()" class="imgRefresh" src="refresh.png"></div>
 
-	<!-- <script type="text/javascript" src="script/js.js"></script> -->
-	<script type="text/javascript">
-
-	// Função para o botão "não" correr
-
-		function correNao(){
-			const idnao = document.getElementById('nao');
-
-			// Alcance do botão
-			var max = 700;
-			var min = -400;
-
-			var numX = Math.floor(Math.random() * max) + min;
-			var numY = Math.floor(Math.random() * max) + min;
-
-			idnao.style.cssText = 'top:'+numY+'px;'+'left:'+numX+'px';
-		}
-
-	// Função para o botão "sim" mostrar a resposa trocando as class
-
-		function sim(){
-
-	const trocaIdConfete = document.getElementById("confete");
-		trocaIdConfete.classList.remove("confeteOff");
-
-	const trocaIdForm = document.getElementById("form");
-		trocaIdForm.classList.remove("formPad");
-		trocaIdForm.classList.add("formSim");
-		}
-
-	// Função recarregar o form
-
-		function refresh(){
-
-	const trocaIdConfete = document.getElementById("confete");
-		trocaIdConfete.classList.add("confeteOff");
-
-	const trocaIdForm = document.getElementById("form");
-		trocaIdForm.classList.remove("formSim");
-		trocaIdForm.classList.add("formPad");
-		
-	const idnao = document.getElementById('nao');
-		idnao.style.cssText = '';
-	}
-
-
-	// Script Confete
-
-       // Configurações
-      var maxConfetti = 150;  // Número máximo de confetes
-      var particleSpeed = 4; //  Velocidade dos confetes
-      var particleSize = 6; //   Tamanho dos confetes
-
-       // Cria o canvas
-      var canvas = document.getElementById("confete");
-      var context = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-       // Array de cores para os confetes
-      var colors = [
-        "#ff4136",     // vermelho
-        "#0074d9",    // azul
-        "#2ecc40",   // verde
-        "#ffdc00",  // amarelo
-        "#ff851b", // laranja
-        "#b10dc9" // roxo
-      ];
-
-       // Cria os confetes
-      var particles = [];
-      for (var i = 0; i < maxConfetti; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,                              // posição inicial x
-          y: Math.random() * canvas.height,                            // posição inicial y
-          vx: (Math.random() - 0.5) * particleSpeed,                  // velocidade x
-          vy: (Math.random() - 0.5) * particleSpeed,                 // velocidade y
-          color: colors[Math.floor(Math.random() * colors.length)], // cor
-          size: Math.floor(Math.random() * particleSize) + 4       // tamanho
-        });
-      }
-
-       // Função para atualizar a posição dos confetes
-      function update() {
-        context.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
-
-         // Atualiza a posição dos confetes
-        for (var i = 0; i < particles.length; i++) {
-          particles[i].x += particles[i].vx;
-          particles[i].y += particles[i].vy;
-
-           // Verifica se o confete saiu da tela
-          if (particles[i].x > canvas.width || particles[i].x < 0) {
-            particles[i].vx *= -1;
-          }
-          if (particles[i].y > canvas.height || particles[i].y < 0) {
-            particles[i].vy *= -1;
-          }
-
-           // Desenha o confete
-          context.beginPath();
-          context.arc(
-            particles[i].x,
-            particles[i].y,
-            particles[i].size,
-            0,
-            Math.PI * 2
-          );
-          context.fillStyle = particles[i].color;
-          context.fill();
-        }
-
-         // Repete a atualização
-        requestAnimationFrame(update);
-      }
-
-       // Inicia a animação
-      update();
-		</script>
-</form>
+		<script type="text/javascript" src="script/js.js"></script>
+	</form>
 </body>
+
 </html>
