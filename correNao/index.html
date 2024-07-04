@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Matheus Luz">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Corre Não</title>
+	<link href="icon.png" rel="icon">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="script.js" defer></script>
+</head>
+
+<body>
+
+	<span class="ass">Mr.Light</span>
+
+	<canvas id="confete" class="confeteOff"></canvas>
+
+	<form class="formPad" id="form">
+		<div class="boxPergunta">
+			<p>Pergunta inegável</p>
+		</div>
+		<div class="boxBot">
+			<div>
+				<div class="sim but" onClick="sim()">Sim</div>
+			</div>
+			<div>
+				<div class="nao but" id="nao" onMouseOver="correNao()">Não</div>
+			</div>
+		</div>
+
+		<div class="respSim">
+			<div>Animação top com JS</div>
+		</div>
+
+		<div id="refresh"><img onClick="refresh()" class="imgRefresh" src="refresh.png"></div>
+
+	</form>
+</body>
+
+</html>

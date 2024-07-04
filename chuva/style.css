@@ -1,0 +1,91 @@
+:root {
+    --sizeS: 1px;
+    --sizeM: calc(var(--sizeS)*1.5);
+    --sizeL: calc(var(--sizeS)*2);
+    --blur: 0;
+    --bColor: #99ffff7f;
+    --mHeight: 50;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: radial-gradient(ellipse 150% 100% at bottom, #3a4b5c, #2c3a47 60%, #1a242f 80%);
+    cursor: url(../cursor_hollow_knight/cursor.cur), pointer;
+    font-family: "Brush Script MT", cursive;
+}
+
+.sky {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(var(--blur));
+}
+
+.gota {
+    position: absolute;
+    border-radius: 50%;
+    top: 0%;
+    left: calc(var(--sizeL)*3);
+    animation: rain linear infinite;
+}
+
+.gota.small {
+    width: var(--sizeS);
+    height: calc(var(--sizeS)*var(--mHeight));
+    animation-duration: var(--speedS);
+}
+
+.gota.medium {
+    width: var(--sizeM);
+    height: calc(var(--sizeM)*var(--mHeight));
+    animation-duration: var(--speedM);
+}
+
+.gota.large {
+    width: var(--sizeL);
+    height: calc(var(--sizeL)*var(--mHeight));
+    animation-duration: var(--speedL);
+}
+
+.small.delay {
+    animation-delay: calc(var(--speedS) / 2);
+}
+
+.medium.delay {
+    animation-delay: calc(var(--speedM) / 2);
+}
+
+.large.delay {
+    animation-delay: calc(var(--speedL) / 2);
+}
+
+@keyframes rain {
+    0% {
+        opacity: 0;
+        top: 0%;
+        left: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        top: 3000px;
+        left: -10%;
+    }
+}
