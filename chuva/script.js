@@ -1,5 +1,5 @@
 const qtdGotas = 75; // Quantidade de gotas por div
-const tempo = 2;    // Quanto menor mais rápido
+const tempo = 3;    // Quanto menor mais rápido
 
 function posicoesAleatorias(tamanho) {
     // console.log("Mudou " + tamanho);
