@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+    z-index: inherit;
+    outline: none;
+}
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+}
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.container {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+}
+.linha {
+    display: inline-flex;
+    margin-top: -4.545vh;
+    margin-left: -8.03vh;
+}
+.linha:nth-child(even) {
+    margin-left: -0.15vh;
+}
+.hexagono {
+    position: relative;
+    margin: 0.3vh 0.3vh;
+    height: calc(100vh/6);
+    aspect-ratio: 10/11;
+    background-color: #050505;
+    /* background: conic-gradient(#222 119deg, #171717 119deg 241deg, #111 241deg); */
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+/* .hexagono::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: #000;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+} */
+.luzDeFundo {
+    position: absolute;
+    height: 400px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    background-color: #0f0;
+    z-index: -1;
+    animation: hueColor 3s linear infinite;
+}
+@keyframes hueColor {
+    0% {
+        filter: hue-rotate(0deg) blur(100px);
+    }
+
+    100% {
+        filter: hue-rotate(360deg) blur(100px);
+    }
+}
+@media screen and (max-height: 600px) {
+    .hexagono {
+        margin: 0.1vh 0.3vh;
+    }
+}
+@media screen and (min-height: 1300px) {
+    .hexagono {
+        margin: 0.3vh 0.3vh;
+    }
+}

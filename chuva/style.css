@@ -3,7 +3,7 @@
     --sizeM: calc(var(--sizeS)*1.5);
     --sizeL: calc(var(--sizeS)*2);
     --blur: 0;
-    --bColor: #99ffff7f;
+    --bColor: #99ddff7f;
     --mHeight: 50;
 }
 
@@ -19,7 +19,7 @@ html {
     align-items: center;
     position: relative;
     background: radial-gradient(ellipse 150% 100% at bottom, #3a4b5c, #2c3a47 60%, #1a242f 80%);
-    cursor: url(../cursor_hollow_knight/cursor.cur), pointer;
+    cursor: url(../cursor/cursorHK.cur), pointer;
     font-family: "Brush Script MT", cursive;
 }
 
