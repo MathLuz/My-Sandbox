@@ -1,8 +1,10 @@
-const qtdGotas = 75; // Quantidade de gotas por div
-const tempo = 3;    // Quanto menor mais rápido
+const gotasIgualTamanhoTelaPor = 18; // Volume de gotas - quanto menor mais gotas
+const tempo = 3;    // Tempo de passagem - quanto menor mais rápido
 
 function posicoesAleatorias(tamanho) {
     // console.log("Mudou " + tamanho);
+    const qtdGotas = Number((window.innerWidth / gotasIgualTamanhoTelaPor).toFixed(0));
+    // console.log(qtdGotas)
     const gotas = Array.from(document.getElementsByClassName(tamanho));
     gotas.forEach((elemento) => {
 
@@ -13,13 +15,14 @@ function posicoesAleatorias(tamanho) {
         elemento.style.boxShadow = shadowBox;
     });
 } function numeroAleatorioX() {
-    let max = window.innerWidth >= 1700 ? window.innerWidth * 1.1 : 1700 * 1.1;
+    let max = window.innerWidth;
     let min = 0;
+    // console.log(max)
     return Math.random() * (max - min) + min;
 } function numeroAleatorioY() {
     let max = window.innerHeight;
     let min = 0;
-    console.log(max)
+    // console.log(max)
     return Math.random() * (max - min) + min;
 }
 const tempoS = (tempo * 1000);

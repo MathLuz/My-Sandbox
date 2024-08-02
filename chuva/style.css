@@ -74,15 +74,12 @@ html {
         top: 0%;
         left: 0;
     }
-
     5% {
         opacity: 1;
     }
-
     95% {
         opacity: 1;
     }
-
     100% {
         opacity: 0;
         top: 3000px;

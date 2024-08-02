@@ -48,19 +48,9 @@ body {
     /* background: conic-gradient(#222 119deg, #171717 119deg 241deg, #111 241deg); */
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
-/* .hexagono::before {
-    content: "";
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
-    background-color: #000;
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-} */
 .luzDeFundo {
     position: absolute;
-    height: 400px;
+    height: 350px;
     aspect-ratio: 1/1;
     border-radius: 100%;
     background-color: #0f0;
