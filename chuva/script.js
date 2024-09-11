@@ -1,5 +1,5 @@
-const volumeInverso = 18; // Volume de gotas - quanto menor mais gotas
-const tempo = 6;         // Tempo de passagem - quanto menor mais rápido
+const volumeInverso = 12; // Volume de gotas - quanto menor mais gotas
+const tempo = 4;         // Tempo de passagem - quanto menor mais rápido
 
 function posicoesAleatorias(tamanho) {
     // console.log("Mudou " + tamanho);
@@ -20,9 +20,10 @@ function posicoesAleatorias(tamanho) {
     // console.log(max)
     return Math.random() * (max - min) + min;
 } function numeroAleatorioY() {
-    let max = window.innerHeight;
+    // let max = window.innerHeight * 1.5;
+    let max = 2000;
     let min = 0;
-    // console.log(max)
+    // console.log(window.innerHeight)
     return Math.random() * (max - min) + min;
 }
 const tempoS = (tempo * 1000);
@@ -54,4 +55,22 @@ setInterval(() => choveL(), tempoL / 2);
 function choveL() {
     posicoesAleatorias(`large ${alternL ? 'delay' : 'start'}`);
     alternL = alternL ? false : true;
+}
+
+// AUDIO
+window.onload = () => sonsDeChuva();
+function sonsDeChuva() {
+    const audio = new Audio('audio/serene-rain.mp3');
+    audio.play();
+    audio.loop = true;
+    audio.volume = 0;
+
+    const inicioGradual = setInterval(() => {
+        const aumentoVol = 0.1
+        if (audio.volume + aumentoVol <= 1) {
+            audio.volume += aumentoVol
+        } else {
+            clearInterval(inicioGradual);
+        }
+    }, 50);
 }

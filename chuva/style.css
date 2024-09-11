@@ -1,9 +1,9 @@
 :root {
-    --sizeS: 0.5px;
-    --sizeM: calc(var(--sizeS)*2);
-    --sizeL: calc(var(--sizeS)*3);
+    --sizeS: 1px;
+    --sizeM: calc(var(--sizeS)*1.5);
+    --sizeL: calc(var(--sizeS)*2);
     --blur: 0;
-    --bColor: #99ddff7f;
+    --bColor: #99ddff6f;
     --mHeight: 50;
 }
 
@@ -82,7 +82,7 @@ html {
     }
     100% {
         opacity: 0;
-        top: 3000px;
+        top: 4000px;
         left: -10%;
     }
 }
