@@ -19,6 +19,7 @@ html {
     align-items: center;
     position: relative;
     background: radial-gradient(ellipse 150% 100% at bottom, #3a4b5c, #2c3a47 60%, #1a242f 80%);
+    /* background-color: #1a242f; */
     cursor: url(cursor/cursorHollowKnight.cur), pointer;
     font-family: "Brush Script MT", cursive;
 }
@@ -74,15 +75,57 @@ html {
         top: 0%;
         left: 0;
     }
+
     5% {
         opacity: 1;
     }
+
     95% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
         top: 4000px;
         left: -10%;
     }
+}
+
+/* MONTANHAS */
+
+.mountains {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.mountains div {
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(#1a242f, #3a4b5c);
+    bottom: 0;
+}
+.mountains .m1 {
+    height: 90%;
+    clip-path: polygon(10% 30%, 25% 15%, 40% 45%, 55% 20%, 70% 50%, 85% 30%, 100% 80%, 100% 100%, 0 100%, 0 20%);
+}
+.mountains .m2 {
+    height: 80%;
+    clip-path: polygon(5% 60%, 20% 25%, 35% 55%, 50% 15%, 65% 60%, 80% 30%, 95% 50%, 100% 80%, 100% 100%, 0 100%);
+}
+.mountains .m3 {
+    height: 70%;
+    clip-path: polygon(0 40%, 15% 20%, 30% 60%, 45% 10%, 60% 50%, 75% 25%, 90% 55%, 100% 40%, 100% 100%, 0 100%);
+}
+.mountains .m4 {
+    height: 60%;
+    clip-path: polygon(10% 50%, 25% 20%, 40% 40%, 55% 15%, 70% 50%, 85% 25%, 100% 60%, 100% 100%, 0 100%, 0 30%);
+}
+.mountains .m5 {
+    height: 50%;
+    clip-path: polygon(0 30%, 20% 10%, 40% 45%, 60% 25%, 80% 55%, 100% 20%, 100% 100%, 0 100%);
+}
+.mountains .m6 {
+    height: 40%;
+    clip-path: polygon(36% 30%, 28% 49%, 14% 13%, 0 48%, 0 100%, 100% 100%, 100% 29%, 86% 56%, 68% 20%, 58% 47%, 51% 18%, 44% 48%);
 }

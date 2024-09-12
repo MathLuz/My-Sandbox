@@ -66,7 +66,7 @@ function sonsDeChuva() {
     audio.volume = 0;
 
     const inicioGradual = setInterval(() => {
-        const aumentoVol = 0.1
+        const aumentoVol = 0.05
         if (audio.volume + aumentoVol <= 1) {
             audio.volume += aumentoVol
         } else {
@@ -74,3 +74,10 @@ function sonsDeChuva() {
         }
     }, 50);
 }
+
+
+/*
+if (navigator.permissions) {
+    navigator.permissions.query({ name: 'autoplay' }).then()
+}
+*/
