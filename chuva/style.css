@@ -5,6 +5,7 @@
     --blur: 0;
     --bColor: #99ddff6f;
     --mHeight: 50;
+    --topRain: 5000px
 }
 
 body,
@@ -34,7 +35,7 @@ html {
 .gota {
     position: absolute;
     border-radius: 50%;
-    top: 0%;
+    top: calc(var(--sizeS)*var(--mHeight)*-2);
     left: calc(var(--sizeL)*3);
     animation: rain linear infinite;
 }
@@ -72,7 +73,7 @@ html {
 @keyframes rain {
     0% {
         opacity: 0;
-        top: 0%;
+        top: calc(var(--sizeS)*var(--mHeight)*-2);
         left: 0;
     }
 
@@ -86,7 +87,7 @@ html {
 
     100% {
         opacity: 0;
-        top: 4000px;
+        top: var(--topRain);
         left: -10%;
     }
 }
