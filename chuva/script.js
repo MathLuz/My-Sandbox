@@ -1,5 +1,5 @@
 const volumeInverso = 12; // Volume de gotas - quanto menor mais gotas
-const tempo = 5; // Velocidade - quanto menor mais rápido
+const tempo = 4; // Velocidade - quanto menor mais rápido
 const root = document.documentElement;
 // root.style.setProperty('--topRain', (window.innerHeight * 2) + 'px');
 
@@ -111,16 +111,12 @@ window.addEventListener('resize', () => {
 
 // AUDIO
 
-window.onload = () => sonsDeChuva();
-function sonsDeChuva() {
-    const music = new Audio('audio/Apocalyptica-NothingElseMatters.mp3');
-    music.play()
-    music.loop = true
-    music.volume = 0.4
+window.onload = () => sons();
+function sons(vol = 0) {
     const audio = new Audio('audio/serene-rain.mp3');
     audio.play();
     audio.loop = true;
-    audio.volume = 0;
+    audio.volume = vol;
 
     const inicioGradual = setInterval(() => {
         const aumentoVol = 0.05
@@ -131,7 +127,16 @@ function sonsDeChuva() {
         }
     }, 50);
 }
-
+const musica = new Audio('audio/Apocalyptica-NothingElseMatters.mp3');
+function musicaPlay(vol = 0.4, tempo = 0){
+    musica.currentTime = tempo;
+    musica.volume = vol
+    musica.loop = true
+    musica.play()
+}
+function musicaPause(){
+}
+console.log("musicaPlay([volume: 0 - 1] (opcional, valor padrão = 0.4), [tempo: 0 - 203 segundos] (opcional, valor padrão = 0))")
 
 /*
 if (navigator.permissions) {
