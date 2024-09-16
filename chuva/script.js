@@ -113,6 +113,10 @@ window.addEventListener('resize', () => {
 
 window.onload = () => sonsDeChuva();
 function sonsDeChuva() {
+    const music = new Audio('audio/Apocalyptica-NothingElseMatters.mp3');
+    music.play()
+    music.loop = true
+    music.volume = 0.4
     const audio = new Audio('audio/serene-rain.mp3');
     audio.play();
     audio.loop = true;
@@ -120,7 +124,7 @@ function sonsDeChuva() {
 
     const inicioGradual = setInterval(() => {
         const aumentoVol = 0.05
-        if (audio.volume + aumentoVol <= 1) {
+        if (audio.volume + aumentoVol <= 0.5) {
             audio.volume += aumentoVol
         } else {
             clearInterval(inicioGradual);
