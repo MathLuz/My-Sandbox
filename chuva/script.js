@@ -1,9 +1,9 @@
 const volumeInverso = 12; // Volume de gotas - quanto menor mais gotas
+const tempo = 5; // Velocidade - quanto menor mais rápido
 const root = document.documentElement;
 // root.style.setProperty('--topRain', (window.innerHeight * 2) + 'px');
 
 // let tempo = window.innerHeight / 500;
-const tempo = 5;
 
 // const rootCss = document.documentElement;
 
@@ -28,8 +28,8 @@ function numeroAleatorioX() {
     return Math.random() * (max - min) + min;
 }
 function numeroAleatorioY() {
-    const max = window.innerHeight;
-    // const max = 2000;
+    // const max = window.innerHeight;
+    const max = 2500;
     const min = 0;
     // console.log(window.innerHeight)
     return Math.random() * (max - min) + min;
