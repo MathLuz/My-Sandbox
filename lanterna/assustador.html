@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 80px;
+            font-family: Papyrus;
+            /* transition: 0.2s; */
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            cursor: none;
+        }
+
+        #fundo {
+            background-image: url(escuro.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* color: #f00; */
+        }
+
+        #frente {
+            background-color: #000;
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <title></title>
+</head>
+
+<body>
+    <!-- <img src="http://github.com/mathluz"> -->
+    <div id="fundo">
+
+    </div>
+    <div id="frente">
+        <!-- FRENTE -->
+    </div>
+    <script>
+        const frente = document.getElementById("frente")
+        document.addEventListener('mousemove', (event) => {
+            const x = event.pageX + "px";
+            const y = event.pageY + "px";
+            frente.style.webkitMaskImage =
+                `radial-gradient(circle at ${x} ${y},transparent 0px,#000 20%)`;
+            // `radial-gradient(circle, black 10%, rgba(0, 0, 0, 0.5) 100%)`;
+        })
+        document.querySelectorAll('img').forEach(img => console.log(img))
+        document.querySelectorAll('img').forEach(img => img.style.display = "none")
+    </script>
+</body>
+
+</html>
