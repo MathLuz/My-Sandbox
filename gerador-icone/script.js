@@ -1,0 +1,237 @@
+
+// Estado atual do ícone
+let currentConfig = {
+    // Varinha mágica
+    svgPath: "M528 70.1C537.5 61.6 552 62 561 71L569 79C578 88 578.4 102.5 569.9 112L484.1 207.9C481.5 210.8 480 214.6 480 218.6L480 240C480 248.8 472.8 256 464 256L448.2 256C443.6 256 439.3 257.9 436.3 261.3L164.7 564.9C158.4 572 149.4 576 139.9 576C131.1 576 122.6 572.5 116.4 566.2L73.7 523.7C67.5 517.5 64 509 64 500.2C64 490.7 68 481.7 75.1 475.4L186.7 375.6C190.1 372.6 192 368.2 192 363.7L192 336.1C192 327.3 199.2 320.1 208 320.1L242.6 320.1C246.5 320.1 250.3 318.6 253.3 316L528 70.1zM496 352C499.6 352 502.7 354.4 503.7 357.8L518.5 409.5L570.2 424.3C573.6 425.3 576 428.4 576 432C576 435.6 573.6 438.7 570.2 439.7L518.5 454.5L503.7 506.2C502.7 509.6 499.6 512 496 512C492.4 512 489.3 509.6 488.3 506.2L473.5 454.5L421.8 439.7C418.4 438.7 416 435.6 416 432C416 428.4 418.4 425.3 421.8 424.3L473.5 409.5L488.3 357.8C489.3 354.4 492.4 352 496 352zM151.7 133.8L166.5 185.5L218.2 200.3C221.6 201.3 224 204.4 224 208C224 211.6 221.6 214.7 218.2 215.7L166.5 230.5L151.7 282.2C150.7 285.6 147.6 288 144 288C140.4 288 137.3 285.6 136.3 282.2L121.5 230.5L69.8 215.7C66.4 214.7 64 211.6 64 208C64 204.4 66.4 201.3 69.8 200.3L121.5 185.5L136.3 133.8C137.3 130.4 140.4 128 144 128C147.6 128 150.7 130.4 151.7 133.8zM272 64C275.7 64 278.9 66.5 279.8 70.1L286.6 97.4L313.9 104.2C317.5 105.1 320 108.3 320 112C320 115.7 317.5 118.9 313.9 119.8L286.6 126.6L279.8 153.9C278.9 157.5 275.7 160 272 160C268.3 160 265.1 157.5 264.2 153.9L257.4 126.6L230.1 119.8C226.5 118.9 224 115.7 224 112C224 108.3 226.5 105.1 230.1 104.2L257.4 97.4L264.2 70.1C265.1 66.5 268.3 64 272 64z",
+    // Lontra
+    // svgPath: "M181.5 261.1L194.4 267.5C200.3 270.5 206.8 272 213.5 272C237 272 256.1 252.9 256.1 229.4L256.1 208C256.1 172.7 227.4 144 192.1 144L128.1 144C92.8 144 64.1 172.7 64.1 208L64.1 229.4C64.1 252.9 83.2 272 106.7 272C113.3 272 119.8 270.5 125.8 267.5C135.1 262.8 142.2 259.3 147 256.9L135.1 249C130.6 246 128 241 128 235.7L128 232C128 218.7 138.7 208 152 208L168 208C181.3 208 192 218.7 192 232L192 235.7C192 241 189.3 246 184.9 249L173.1 256.9L181.5 261.1zM172.9 310.5L160 304.1L147.1 310.5C134.5 316.8 120.6 320.1 106.6 320.1C103 320.1 99.5 319.9 96 319.5L96 320.1C96 355.4 124.7 384.1 160 384.1L224 384.1C241.7 384.1 256 398.4 256 416.1C256 433.8 241.7 448.1 224 448.1L384 448.1L384 384.1C384 360.4 396.9 339.7 416 328.7C425.4 323.3 436.3 320.1 448 320.1L448 304.1C448 277.6 469.5 256.1 496 256.1C504.8 256.1 512 263.3 512 272.1L512 368.1C512 376.9 519.2 384.1 528 384.1C536.8 384.1 544 376.9 544 368.1L544 268.4C544 220.2 513.2 177.4 467.4 162.1L458.9 159.3C450.9 156.6 446.3 148.2 448.5 140C450.7 131.8 458.8 126.8 467.1 128.4L487 132.4C576 150.1 640 228.2 640 318.9L640 320L640 320C640 443.7 539.7 544 416 544L255.4 544C132 544 32 444 32 320.6L32 280.8C21.9 266.2 16 248.5 16 229.4L16 208L16 206.6C6.7 203.3 0 194.5 0 184C0 170.7 10.7 160 24 160L26.8 160C44.8 122.2 83.3 96 128 96L192 96C236.7 96 275.2 122.2 293.2 160L296 160C309.3 160 320 170.7 320 184C320 194.5 313.3 203.3 304 206.6L304 208L304 229.4C304 230.8 304 232.2 303.9 233.7C315.9 227.5 329.6 224.1 344 224.1L352 224.1C369.7 224.1 384 238.4 384 256.1C384 273.8 369.7 288.1 352 288.1L344 288.1C330.7 288.1 320 298.8 320 312.1L320 320.1L376.4 320.1C361.2 337.1 352 359.5 352 384.1L320 384.1C277.7 384.1 241.8 356.7 229 318.8C223.9 319.7 218.7 320.1 213.4 320.1C199.3 320.1 185.5 316.8 172.9 310.5zM96 192C104.8 192 112 199.2 112 208C112 216.8 104.8 224 96 224C87.2 224 80 216.8 80 208C80 199.2 87.2 192 96 192zM208 208C208 199.2 215.2 192 224 192C232.8 192 240 199.2 240 208C240 216.8 232.8 224 224 224C215.2 224 208 216.8 208 208z",
+    // Lua com estrela 
+    // svgPath: "M0 256c0-141.4 114.6-256 256-256 33 0 64.6 6.3 93.6 17.7 7.4 2.9 11.5 10.7 9.8 18.4s-8.8 13-16.7 12.4c-4.8-.3-9.7-.5-14.6-.5-114.9 0-208 93.1-208 208s93.1 208 208 208c4.9 0 9.8-.2 14.6-.5 7.9-.5 15 4.7 16.7 12.4s-2.4 15.5-9.8 18.4C320.6 505.7 289 512 256 512 114.6 512 0 397.4 0 256zM375.4 137.4c3.5-7.1 13.7-7.1 17.2 0l31.5 63.8c1.4 2.8 4.1 4.8 7.2 5.3l70.4 10.2c7.9 1.1 11 10.8 5.3 16.4l-50.9 49.6c-2.3 2.2-3.3 5.4-2.8 8.5l12 70.1c1.3 7.8-6.9 13.8-13.9 10.1l-63-33.1c-2.8-1.5-6.1-1.5-8.9 0l-63 33.1c-7 3.7-15.3-2.3-13.9-10.1l12-70.1c.5-3.1-.5-6.3-2.8-8.5L261 233.1c-5.7-5.6-2.6-15.2 5.3-16.4l70.4-10.2c3.1-.5 5.8-2.4 7.2-5.3l31.5-63.8z",
+    // Dragão 
+    // svgPath: "M352 188.5L300.1 175.5C293.6 173.9 288.8 168.4 288.1 161.7C287.4 155 290.9 148.6 296.8 145.6L337.6 125.2L294.3 92.7C288.8 88.6 286.5 81.4 288.7 74.8C290.9 68.2 297.1 64 304 64L464 64C494.2 64 522.7 78.2 540.8 102.4L598.4 179.2C604.6 187.5 608 197.6 608 208C608 234.5 586.5 256 560 256L538.5 256C521.5 256 505.2 249.3 493.2 237.3L479.9 224L447.9 224L447.9 245.5C447.9 270.3 460.7 293.4 481.7 306.6L588.3 373.2C620.4 393.3 639.9 428.4 639.9 466.3C639.9 526.9 590.8 576.1 530.1 576.1L32.3 576C29 576 25.7 575.6 22.7 574.6C13.5 571.8 6 565 2.3 556C1 552.7 .1 549.1 0 545.3C-.2 541.6 .3 538 1.3 534.6C4.1 525.4 10.9 517.9 19.9 514.2C22.9 513 26.1 512.2 29.4 512L433.3 476C441.6 475.3 448 468.3 448 459.9C448 455.6 446.3 451.5 443.3 448.5L398.9 404.1C368.9 374.1 352 333.4 352 291L352 188.5zM512 136.3C512 136.2 512 136.1 512 136C512 135.9 512 135.8 512 135.7L512 136.3zM510.7 143.7L464.3 132.1C464.1 133.4 464 134.7 464 136C464 149.3 474.7 160 488 160C498.6 160 507.5 153.2 510.7 143.7zM130.9 180.5C147.2 166 171.3 164.3 189.4 176.4L320 263.4L320 290.9C320 323.7 328.4 355.7 344 383.9L112 383.9C105.3 383.9 99.3 379.7 97 373.5C94.7 367.3 96.5 360.2 101.6 355.8L171 296.3L18.4 319.8C11.4 320.9 4.5 317.2 1.5 310.8C-1.5 304.4 .1 296.8 5.4 292L130.9 180.5z",
+    viewBoxWidth: 640,
+    viewBoxHeight: 512,
+    color1: "#4a148c",
+    color2: "#ff6f00",
+    color3: "#fff176",
+    gradientType: "linear",
+    gradientDirection: "to-tr"
+};
+
+// Inicializa os valores dos inputs
+function initInputs() {
+    document.getElementById("svg-path").value = currentConfig.svgPath;
+    document.getElementById("viewbox-width").value = currentConfig.viewBoxWidth;
+    document.getElementById("viewbox-height").value = currentConfig.viewBoxHeight;
+    document.getElementById("color1").value = currentConfig.color1;
+    document.getElementById("color2").value = currentConfig.color2;
+    document.getElementById("color3").value = currentConfig.color3;
+    document.getElementById("gradient-type").value = currentConfig.gradientType;
+    document.getElementById("gradient-direction").value = currentConfig.gradientDirection;
+}
+
+// Atualiza o preview do ícone
+function updatePreview() {
+    const svg = document.getElementById("icon-preview");
+    const path = svg.querySelector("path");
+
+    // Atualiza viewBox e path
+    svg.setAttribute("viewBox", `0 0 ${currentConfig.viewBoxWidth} ${currentConfig.viewBoxHeight}`);
+    path.setAttribute("d", currentConfig.svgPath);
+
+    // Remove gradiente antigo se existir
+    let defs = svg.querySelector("defs");
+    if (defs) {
+        defs.remove();
+    }
+
+    // Cria novo gradiente
+    defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    let gradient;
+
+    if (currentConfig.gradientType === "linear") {
+        gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+        gradient.setAttribute("id", "iconGradient");
+
+        // Define direção do gradiente
+        const directions = {
+            "to-r": { x1: "0%", y1: "0%", x2: "100%", y2: "0%" },
+            "to-b": { x1: "0%", y1: "0%", x2: "0%", y2: "100%" },
+            "to-br": { x1: "0%", y1: "0%", x2: "100%", y2: "100%" },
+            "to-bl": { x1: "100%", y1: "0%", x2: "0%", y2: "100%" },
+            "to-tr": { x1: "0%", y1: "100%", x2: "100%", y2: "0%" },
+            "to-tl": { x1: "100%", y1: "100%", x2: "0%", y2: "0%" }
+        };
+
+        const dir = directions[currentConfig.gradientDirection];
+        gradient.setAttribute("x1", dir.x1);
+        gradient.setAttribute("y1", dir.y1);
+        gradient.setAttribute("x2", dir.x2);
+        gradient.setAttribute("y2", dir.y2);
+    } else {
+        gradient = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
+        gradient.setAttribute("id", "iconGradient");
+        gradient.setAttribute("cx", "50%");
+        gradient.setAttribute("cy", "50%");
+        gradient.setAttribute("r", "50%");
+    }
+
+    // Adiciona stops de cor
+    const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    stop1.setAttribute("offset", "0%");
+    stop1.setAttribute("stop-color", currentConfig.color1);
+
+    const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    stop2.setAttribute("offset", "50%");
+    stop2.setAttribute("stop-color", currentConfig.color2);
+
+    const stop3 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    stop3.setAttribute("offset", "100%");
+    stop3.setAttribute("stop-color", currentConfig.color3);
+
+    gradient.appendChild(stop1);
+    gradient.appendChild(stop2);
+    gradient.appendChild(stop3);
+    defs.appendChild(gradient);
+    svg.insertBefore(defs, svg.firstChild);
+}
+
+// Aplica as alterações dos inputs
+function applyChanges() {
+    currentConfig.svgPath = document.getElementById("svg-path").value.trim();
+    currentConfig.viewBoxWidth = parseInt(document.getElementById("viewbox-width").value) || 640;
+    currentConfig.viewBoxHeight = parseInt(document.getElementById("viewbox-height").value) || 512;
+    currentConfig.color1 = document.getElementById("color1").value;
+    currentConfig.color2 = document.getElementById("color2").value;
+    currentConfig.color3 = document.getElementById("color3").value;
+    currentConfig.gradientType = document.getElementById("gradient-type").value;
+    currentConfig.gradientDirection = document.getElementById("gradient-direction").value;
+
+    updatePreview();
+}
+
+// Salva o ícone como PNG
+async function saveIcon() {
+    if (!currentConfig.svgPath) {
+        alert("Por favor, insira um código SVG path!");
+        return;
+    }
+
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    // Define tamanho do canvas
+    const size = 512;
+    canvas.width = size;
+    canvas.height = size;
+
+    // Limpa o canvas (fundo transparente)
+    ctx.clearRect(0, 0, size, size);
+
+    // Cria o gradiente
+    let gradient;
+    if (currentConfig.gradientType === "linear") {
+        const directions = {
+            "to-r": [0, 0, size, 0],
+            "to-b": [0, 0, 0, size],
+            "to-br": [0, 0, size, size],
+            "to-bl": [size, 0, 0, size],
+            "to-tr": [0, size, size, 0],
+            "to-tl": [size, size, 0, 0]
+        };
+        const coords = directions[currentConfig.gradientDirection];
+        gradient = ctx.createLinearGradient(...coords);
+    } else {
+        gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+    }
+
+    gradient.addColorStop(0, currentConfig.color1);
+    gradient.addColorStop(0.5, currentConfig.color2);
+    gradient.addColorStop(1, currentConfig.color3);
+
+    // Aplica o gradiente
+    ctx.fillStyle = gradient;
+
+    // Cria o path e desenha
+    const path = new Path2D(currentConfig.svgPath);
+
+    // Escala e centraliza o path
+    ctx.save();
+    ctx.translate(size / 2, size / 2);
+
+    // Calcula escala para manter proporção
+    const scaleX = (size * 0.7) / currentConfig.viewBoxWidth;
+    const scaleY = (size * 0.7) / currentConfig.viewBoxHeight;
+    const scale = Math.min(scaleX, scaleY);
+
+    ctx.scale(scale, scale);
+    ctx.translate(-currentConfig.viewBoxWidth / 2, -currentConfig.viewBoxHeight / 2);
+    ctx.fill(path);
+    ctx.restore();
+
+    // Salva
+    const link = document.createElement("a");
+    link.download = "icon.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+}
+
+// Mostra/esconde campo de direção baseado no tipo de gradiente
+function toggleDirectionField() {
+    const gradientType = document.getElementById("gradient-type").value;
+    const directionGroup = document.getElementById("direction-group");
+    directionGroup.style.display = gradientType === "linear" ? "block" : "none";
+}
+
+// Gerenciamento de tema
+function initTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const themeToggle = document.getElementById("themeToggle");
+    
+    // Define tema inicial: salvo no localStorage > preferência do sistema > dark (padrão)
+    if (savedTheme === "light" || (!savedTheme && !prefersDark)) {
+        document.body.classList.add("light-mode");
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+}
+
+function toggleTheme() {
+    const body = document.body;
+    const themeToggle = document.getElementById("themeToggle");
+    
+    body.classList.toggle("light-mode");
+    
+    if (body.classList.contains("light-mode")) {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem("theme", "light");
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem("theme", "dark");
+    }
+}
+
+// Event listeners
+document.getElementById("saveBtn").addEventListener("click", saveIcon);
+document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+
+// Atualiza automaticamente quando qualquer campo muda
+document.getElementById("svg-path").addEventListener("input", applyChanges);
+document.getElementById("viewbox-width").addEventListener("input", applyChanges);
+document.getElementById("viewbox-height").addEventListener("input", applyChanges);
+document.getElementById("color1").addEventListener("input", applyChanges);
+document.getElementById("color2").addEventListener("input", applyChanges);
+document.getElementById("color3").addEventListener("input", applyChanges);
+document.getElementById("gradient-type").addEventListener("change", () => {
+    toggleDirectionField();
+    applyChanges();
+});
+document.getElementById("gradient-direction").addEventListener("change", applyChanges);
+
+// Inicializa
+initTheme();
+initInputs();
+updatePreview();
+toggleDirectionField();
