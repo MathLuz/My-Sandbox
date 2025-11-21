@@ -259,6 +259,31 @@ input[type="color"]:hover {
     transform: scale(1.05);
 }
 
+.color-input input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    background: #0a0a0a;
+    border: 2px solid #2a2a2a;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+body.light-mode .color-input input[type="text"] {
+    background: white;
+    border-color: #e0e0e0;
+    color: #1a1a1a;
+}
+
+.color-input input[type="text"]:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
 .color-input label {
     font-size: 0.85rem;
     color: #94a3b8;

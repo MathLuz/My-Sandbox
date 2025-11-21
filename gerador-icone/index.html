@@ -64,18 +64,30 @@
                 </div>
 
                 <div class="control-group">
+                    <label for="color-count">Quantidade de Cores:</label>
+                    <select id="color-count">
+                        <option value="1">1 Cor</option>
+                        <option value="2">2 Cores</option>
+                        <option value="3" selected>3 Cores</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
                     <label>Cores do Gradiente:</label>
                     <div class="color-inputs">
                         <div class="color-input">
-                            <input type="color" id="color1" value="#22d3ee">
+                            <input type="color" id="color1" value="#4a148c">
+                            <input type="text" id="color1-hex" value="#4a148c" maxlength="7" placeholder="#000000">
                             <label for="color1">Cor 1</label>
                         </div>
-                        <div class="color-input">
-                            <input type="color" id="color2" value="#3b82f6">
+                        <div class="color-input" id="color2-group">
+                            <input type="color" id="color2" value="#ff6f00">
+                            <input type="text" id="color2-hex" value="#ff6f00" maxlength="7" placeholder="#000000">
                             <label for="color2">Cor 2</label>
                         </div>
-                        <div class="color-input">
-                            <input type="color" id="color3" value="#ec4899">
+                        <div class="color-input" id="color3-group">
+                            <input type="color" id="color3" value="#fff176">
+                            <input type="text" id="color3-hex" value="#fff176" maxlength="7" placeholder="#000000">
                             <label for="color3">Cor 3</label>
                         </div>
                     </div>

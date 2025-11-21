@@ -11,9 +11,13 @@ let currentConfig = {
     // svgPath: "M352 188.5L300.1 175.5C293.6 173.9 288.8 168.4 288.1 161.7C287.4 155 290.9 148.6 296.8 145.6L337.6 125.2L294.3 92.7C288.8 88.6 286.5 81.4 288.7 74.8C290.9 68.2 297.1 64 304 64L464 64C494.2 64 522.7 78.2 540.8 102.4L598.4 179.2C604.6 187.5 608 197.6 608 208C608 234.5 586.5 256 560 256L538.5 256C521.5 256 505.2 249.3 493.2 237.3L479.9 224L447.9 224L447.9 245.5C447.9 270.3 460.7 293.4 481.7 306.6L588.3 373.2C620.4 393.3 639.9 428.4 639.9 466.3C639.9 526.9 590.8 576.1 530.1 576.1L32.3 576C29 576 25.7 575.6 22.7 574.6C13.5 571.8 6 565 2.3 556C1 552.7 .1 549.1 0 545.3C-.2 541.6 .3 538 1.3 534.6C4.1 525.4 10.9 517.9 19.9 514.2C22.9 513 26.1 512.2 29.4 512L433.3 476C441.6 475.3 448 468.3 448 459.9C448 455.6 446.3 451.5 443.3 448.5L398.9 404.1C368.9 374.1 352 333.4 352 291L352 188.5zM512 136.3C512 136.2 512 136.1 512 136C512 135.9 512 135.8 512 135.7L512 136.3zM510.7 143.7L464.3 132.1C464.1 133.4 464 134.7 464 136C464 149.3 474.7 160 488 160C498.6 160 507.5 153.2 510.7 143.7zM130.9 180.5C147.2 166 171.3 164.3 189.4 176.4L320 263.4L320 290.9C320 323.7 328.4 355.7 344 383.9L112 383.9C105.3 383.9 99.3 379.7 97 373.5C94.7 367.3 96.5 360.2 101.6 355.8L171 296.3L18.4 319.8C11.4 320.9 4.5 317.2 1.5 310.8C-1.5 304.4 .1 296.8 5.4 292L130.9 180.5z",
     viewBoxWidth: 640,
     viewBoxHeight: 512,
+    // color1: "#22d3ee",
+    // color2: "#3b82f6",
+    // color3: "#ec4899",
     color1: "#4a148c",
     color2: "#ff6f00",
     color3: "#fff176",
+    colorCount: 3,
     gradientType: "linear",
     gradientDirection: "to-tr"
 };
@@ -24,10 +28,15 @@ function initInputs() {
     document.getElementById("viewbox-width").value = currentConfig.viewBoxWidth;
     document.getElementById("viewbox-height").value = currentConfig.viewBoxHeight;
     document.getElementById("color1").value = currentConfig.color1;
+    document.getElementById("color1-hex").value = currentConfig.color1;
     document.getElementById("color2").value = currentConfig.color2;
+    document.getElementById("color2-hex").value = currentConfig.color2;
     document.getElementById("color3").value = currentConfig.color3;
+    document.getElementById("color3-hex").value = currentConfig.color3;
+    document.getElementById("color-count").value = currentConfig.colorCount;
     document.getElementById("gradient-type").value = currentConfig.gradientType;
     document.getElementById("gradient-direction").value = currentConfig.gradientDirection;
+    updateColorVisibility();
 }
 
 // Atualiza o preview do ícone
@@ -76,24 +85,71 @@ function updatePreview() {
         gradient.setAttribute("r", "50%");
     }
 
-    // Adiciona stops de cor
-    const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
-    stop1.setAttribute("offset", "0%");
-    stop1.setAttribute("stop-color", currentConfig.color1);
+    // Adiciona stops de cor baseado na quantidade selecionada
+    if (currentConfig.colorCount === 1) {
+        const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop1.setAttribute("offset", "0%");
+        stop1.setAttribute("stop-color", currentConfig.color1);
+        gradient.appendChild(stop1);
+    } else if (currentConfig.colorCount === 2) {
+        const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop1.setAttribute("offset", "0%");
+        stop1.setAttribute("stop-color", currentConfig.color1);
+        
+        const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop2.setAttribute("offset", "100%");
+        stop2.setAttribute("stop-color", currentConfig.color2);
+        
+        gradient.appendChild(stop1);
+        gradient.appendChild(stop2);
+    } else {
+        const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop1.setAttribute("offset", "0%");
+        stop1.setAttribute("stop-color", currentConfig.color1);
 
-    const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
-    stop2.setAttribute("offset", "50%");
-    stop2.setAttribute("stop-color", currentConfig.color2);
+        const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop2.setAttribute("offset", "50%");
+        stop2.setAttribute("stop-color", currentConfig.color2);
 
-    const stop3 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
-    stop3.setAttribute("offset", "100%");
-    stop3.setAttribute("stop-color", currentConfig.color3);
+        const stop3 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop3.setAttribute("offset", "100%");
+        stop3.setAttribute("stop-color", currentConfig.color3);
 
-    gradient.appendChild(stop1);
-    gradient.appendChild(stop2);
-    gradient.appendChild(stop3);
+        gradient.appendChild(stop1);
+        gradient.appendChild(stop2);
+        gradient.appendChild(stop3);
+    }
+    
     defs.appendChild(gradient);
     svg.insertBefore(defs, svg.firstChild);
+}
+
+// Atualiza visibilidade dos campos de cor
+function updateColorVisibility() {
+    const colorCount = parseInt(document.getElementById("color-count").value);
+    const color2Group = document.getElementById("color2-group");
+    const color3Group = document.getElementById("color3-group");
+    
+    color2Group.style.display = colorCount >= 2 ? "flex" : "none";
+    color3Group.style.display = colorCount >= 3 ? "flex" : "none";
+}
+
+// Sincroniza cor do picker com campo hex
+function syncColorPicker(colorNumber) {
+    const hex = document.getElementById(`color${colorNumber}-hex`).value;
+    if (/^#[0-9A-F]{6}$/i.test(hex)) {
+        document.getElementById(`color${colorNumber}`).value = hex;
+        currentConfig[`color${colorNumber}`] = hex;
+        updatePreview();
+    }
+}
+
+// Sincroniza campo hex com cor do picker
+function syncHexInput(colorNumber) {
+    const color = document.getElementById(`color${colorNumber}`).value;
+    document.getElementById(`color${colorNumber}-hex`).value = color;
+    currentConfig[`color${colorNumber}`] = color;
+    updatePreview();
 }
 
 // Aplica as alterações dos inputs
@@ -104,6 +160,7 @@ function applyChanges() {
     currentConfig.color1 = document.getElementById("color1").value;
     currentConfig.color2 = document.getElementById("color2").value;
     currentConfig.color3 = document.getElementById("color3").value;
+    currentConfig.colorCount = parseInt(document.getElementById("color-count").value);
     currentConfig.gradientType = document.getElementById("gradient-type").value;
     currentConfig.gradientDirection = document.getElementById("gradient-direction").value;
 
@@ -145,9 +202,17 @@ async function saveIcon() {
         gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
     }
 
-    gradient.addColorStop(0, currentConfig.color1);
-    gradient.addColorStop(0.5, currentConfig.color2);
-    gradient.addColorStop(1, currentConfig.color3);
+    // Adiciona stops baseado na quantidade de cores
+    if (currentConfig.colorCount === 1) {
+        gradient.addColorStop(0, currentConfig.color1);
+    } else if (currentConfig.colorCount === 2) {
+        gradient.addColorStop(0, currentConfig.color1);
+        gradient.addColorStop(1, currentConfig.color2);
+    } else {
+        gradient.addColorStop(0, currentConfig.color1);
+        gradient.addColorStop(0.5, currentConfig.color2);
+        gradient.addColorStop(1, currentConfig.color3);
+    }
 
     // Aplica o gradiente
     ctx.fillStyle = gradient;
@@ -188,7 +253,7 @@ function initTheme() {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const themeToggle = document.getElementById("themeToggle");
-    
+
     // Define tema inicial: salvo no localStorage > preferência do sistema > dark (padrão)
     if (savedTheme === "light" || (!savedTheme && !prefersDark)) {
         document.body.classList.add("light-mode");
@@ -201,9 +266,9 @@ function initTheme() {
 function toggleTheme() {
     const body = document.body;
     const themeToggle = document.getElementById("themeToggle");
-    
+
     body.classList.toggle("light-mode");
-    
+
     if (body.classList.contains("light-mode")) {
         themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         localStorage.setItem("theme", "light");
@@ -221,9 +286,16 @@ document.getElementById("themeToggle").addEventListener("click", toggleTheme);
 document.getElementById("svg-path").addEventListener("input", applyChanges);
 document.getElementById("viewbox-width").addEventListener("input", applyChanges);
 document.getElementById("viewbox-height").addEventListener("input", applyChanges);
-document.getElementById("color1").addEventListener("input", applyChanges);
-document.getElementById("color2").addEventListener("input", applyChanges);
-document.getElementById("color3").addEventListener("input", applyChanges);
+document.getElementById("color1").addEventListener("input", () => syncHexInput(1));
+document.getElementById("color1-hex").addEventListener("input", () => syncColorPicker(1));
+document.getElementById("color2").addEventListener("input", () => syncHexInput(2));
+document.getElementById("color2-hex").addEventListener("input", () => syncColorPicker(2));
+document.getElementById("color3").addEventListener("input", () => syncHexInput(3));
+document.getElementById("color3-hex").addEventListener("input", () => syncColorPicker(3));
+document.getElementById("color-count").addEventListener("change", () => {
+    updateColorVisibility();
+    applyChanges();
+});
 document.getElementById("gradient-type").addEventListener("change", () => {
     toggleDirectionField();
     applyChanges();
