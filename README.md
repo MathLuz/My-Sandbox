@@ -14,3 +14,6 @@ Efeito visual de chuva animada criada puramente com CSS animations.
 
 ## [Hexágonos](https://mathluz.github.io/My-Sandbox/hexagonos/)
 Wallpaper interativo com padrão de hexágonos que respondem ao movimento do mouse.
+
+## [Test Cam](https://mathluz.github.io/My-Sandbox/test-cam/)
+Teste de câmera. Solicita permissão e exibe a câmera inicialmente espelhada no centro da tela.

@@ -1,0 +1,180 @@
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #0f0f0f;
+    --bg-video: #000000;
+    --text-primary: #e4e4e4;
+    --text-secondary: #666;
+    --text-placeholder: #333;
+    --accent-primary: #22c55e;
+    --accent-dark: #16a34a;
+    --accent-shadow: rgba(34, 197, 94, 0.2);
+    --accent-shadow-hover: rgba(34, 197, 94, 0.4);
+    --accent-glow: rgba(34, 197, 94, 0.3);
+    --btn-disabled: #222;
+    --error: #ff5555;
+    --shadow-dark: rgba(0, 0, 0, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent-primary);
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    background: var(--bg-video);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow-dark);
+    aspect-ratio: 4/3;
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    transform: scaleX(-1);
+}
+
+#video.active {
+    display: block;
+}
+
+#placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-placeholder);
+    transition: opacity 0.3s ease;
+}
+
+#placeholder.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#placeholder svg {
+    opacity: 0.5;
+}
+
+#placeholder p {
+    font-size: 1.1rem;
+    max-width: 250px;
+}
+
+#startBtn {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-dark) 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px var(--accent-shadow);
+}
+
+#startBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 25px var(--accent-shadow-hover);
+}
+
+#startBtn:active {
+    transform: translateY(0);
+}
+
+#startBtn:disabled {
+    background: var(--btn-disabled);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#status {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    min-height: 1.5rem;
+}
+
+#status.error {
+    color: var(--error);
+}
+
+#status.success {
+    color: var(--accent-primary);
+}
+
+.controls {
+    margin-top: 1.5rem;
+}
+
+.checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+.checkbox-label:hover {
+    color: var(--accent-primary);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .video-container {
+        max-width: 100%;
+    }
+    
+    #startBtn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
