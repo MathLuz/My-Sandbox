@@ -128,13 +128,21 @@ function sons(vol = 0) {
     }, 50);
 }
 const musica = new Audio('audio/Apocalyptica-NothingElseMatters.mp3');
-function musicaPlay(vol = 0.4, tempo = 0){
+function musicaPlay(vol = 0.4, tempo = 0) {
+    if (vol < 0 || vol > 1) {
+        return "Erro: O volume deve estar entre 0 e 1";
+    }
+    if (tempo < 0 || tempo > 203) {
+        return "Erro: O tempo deve estar entre 0 e 203 segundos";
+    }
     musica.currentTime = tempo;
     musica.volume = vol
     musica.loop = true
     musica.play()
+    return "Musica iniciada em " + tempo + " segundos com volume " + vol;
 }
-function musicaPause(){
+function musicaPause() {
+    musica.pause();
 }
 console.log("musicaPlay([volume: 0 - 1] (opcional, valor padrão = 0.4), [tempo: 0 - 203 segundos] (opcional, valor padrão = 0))")
 
