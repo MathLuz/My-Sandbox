@@ -9,6 +9,8 @@ let currentConfig = {
     // svgPath: "M0 256c0-141.4 114.6-256 256-256 33 0 64.6 6.3 93.6 17.7 7.4 2.9 11.5 10.7 9.8 18.4s-8.8 13-16.7 12.4c-4.8-.3-9.7-.5-14.6-.5-114.9 0-208 93.1-208 208s93.1 208 208 208c4.9 0 9.8-.2 14.6-.5 7.9-.5 15 4.7 16.7 12.4s-2.4 15.5-9.8 18.4C320.6 505.7 289 512 256 512 114.6 512 0 397.4 0 256zM375.4 137.4c3.5-7.1 13.7-7.1 17.2 0l31.5 63.8c1.4 2.8 4.1 4.8 7.2 5.3l70.4 10.2c7.9 1.1 11 10.8 5.3 16.4l-50.9 49.6c-2.3 2.2-3.3 5.4-2.8 8.5l12 70.1c1.3 7.8-6.9 13.8-13.9 10.1l-63-33.1c-2.8-1.5-6.1-1.5-8.9 0l-63 33.1c-7 3.7-15.3-2.3-13.9-10.1l12-70.1c.5-3.1-.5-6.3-2.8-8.5L261 233.1c-5.7-5.6-2.6-15.2 5.3-16.4l70.4-10.2c3.1-.5 5.8-2.4 7.2-5.3l31.5-63.8z",
     // Dragão 
     // svgPath: "M352 188.5L300.1 175.5C293.6 173.9 288.8 168.4 288.1 161.7C287.4 155 290.9 148.6 296.8 145.6L337.6 125.2L294.3 92.7C288.8 88.6 286.5 81.4 288.7 74.8C290.9 68.2 297.1 64 304 64L464 64C494.2 64 522.7 78.2 540.8 102.4L598.4 179.2C604.6 187.5 608 197.6 608 208C608 234.5 586.5 256 560 256L538.5 256C521.5 256 505.2 249.3 493.2 237.3L479.9 224L447.9 224L447.9 245.5C447.9 270.3 460.7 293.4 481.7 306.6L588.3 373.2C620.4 393.3 639.9 428.4 639.9 466.3C639.9 526.9 590.8 576.1 530.1 576.1L32.3 576C29 576 25.7 575.6 22.7 574.6C13.5 571.8 6 565 2.3 556C1 552.7 .1 549.1 0 545.3C-.2 541.6 .3 538 1.3 534.6C4.1 525.4 10.9 517.9 19.9 514.2C22.9 513 26.1 512.2 29.4 512L433.3 476C441.6 475.3 448 468.3 448 459.9C448 455.6 446.3 451.5 443.3 448.5L398.9 404.1C368.9 374.1 352 333.4 352 291L352 188.5zM512 136.3C512 136.2 512 136.1 512 136C512 135.9 512 135.8 512 135.7L512 136.3zM510.7 143.7L464.3 132.1C464.1 133.4 464 134.7 464 136C464 149.3 474.7 160 488 160C498.6 160 507.5 153.2 510.7 143.7zM130.9 180.5C147.2 166 171.3 164.3 189.4 176.4L320 263.4L320 290.9C320 323.7 328.4 355.7 344 383.9L112 383.9C105.3 383.9 99.3 379.7 97 373.5C94.7 367.3 96.5 360.2 101.6 355.8L171 296.3L18.4 319.8C11.4 320.9 4.5 317.2 1.5 310.8C-1.5 304.4 .1 296.8 5.4 292L130.9 180.5z",
+    viewBoxX: 0,
+    viewBoxY: 0,
     viewBoxWidth: 640,
     viewBoxHeight: 512,
     // color1: "#22d3ee",
@@ -19,12 +21,17 @@ let currentConfig = {
     color3: "#fff176",
     colorCount: 3,
     gradientType: "linear",
-    gradientDirection: "to-tr"
+    gradientDirection: "to-tr",
+    hasBackground: false,
+    backgroundColor: "#ffffff",
+    iconSize: 70
 };
 
 // Inicializa os valores dos inputs
 function initInputs() {
     document.getElementById("svg-path").value = currentConfig.svgPath;
+    document.getElementById("viewbox-x").value = currentConfig.viewBoxX;
+    document.getElementById("viewbox-y").value = currentConfig.viewBoxY;
     document.getElementById("viewbox-width").value = currentConfig.viewBoxWidth;
     document.getElementById("viewbox-height").value = currentConfig.viewBoxHeight;
     document.getElementById("color1").value = currentConfig.color1;
@@ -36,16 +43,34 @@ function initInputs() {
     document.getElementById("color-count").value = currentConfig.colorCount;
     document.getElementById("gradient-type").value = currentConfig.gradientType;
     document.getElementById("gradient-direction").value = currentConfig.gradientDirection;
+    document.getElementById("has-background").checked = currentConfig.hasBackground;
+    document.getElementById("background-color").value = currentConfig.backgroundColor;
+    document.getElementById("background-color-hex").value = currentConfig.backgroundColor;
+    document.getElementById("icon-size").value = currentConfig.iconSize;
+    document.getElementById("icon-size-value").textContent = currentConfig.iconSize + "%";
     updateColorVisibility();
+    updateBackgroundVisibility();
 }
 
 // Atualiza o preview do ícone
 function updatePreview() {
     const svg = document.getElementById("icon-preview");
     const path = svg.querySelector("path");
+    const iconContainer = document.getElementById("icon-area");
+
+    // Atualiza fundo do container
+    if (currentConfig.hasBackground) {
+        iconContainer.style.backgroundColor = currentConfig.backgroundColor;
+    } else {
+        iconContainer.style.backgroundColor = "";
+    }
+
+    // Atualiza o tamanho do SVG baseado no iconSize (mantém container fixo)
+    svg.style.width = `${currentConfig.iconSize}%`;
+    svg.style.height = `${currentConfig.iconSize}%`;
 
     // Atualiza viewBox e path
-    svg.setAttribute("viewBox", `0 0 ${currentConfig.viewBoxWidth} ${currentConfig.viewBoxHeight}`);
+    svg.setAttribute("viewBox", `${currentConfig.viewBoxX} ${currentConfig.viewBoxY} ${currentConfig.viewBoxWidth} ${currentConfig.viewBoxHeight}`);
     path.setAttribute("d", currentConfig.svgPath);
 
     // Remove gradiente antigo se existir
@@ -134,6 +159,16 @@ function updateColorVisibility() {
     color3Group.style.display = colorCount >= 3 ? "flex" : "none";
 }
 
+// Atualiza visibilidade do campo de fundo
+function updateBackgroundVisibility() {
+    const hasBackground = document.getElementById("has-background").checked;
+    const backgroundGroup = document.getElementById("background-group");
+    
+    backgroundGroup.style.display = hasBackground ? "block" : "none";
+    currentConfig.hasBackground = hasBackground;
+    updatePreview();
+}
+
 // Sincroniza cor do picker com campo hex
 function syncColorPicker(colorNumber) {
     const hex = document.getElementById(`color${colorNumber}-hex`).value;
@@ -152,9 +187,45 @@ function syncHexInput(colorNumber) {
     updatePreview();
 }
 
+// Sincroniza cor do fundo com picker
+function syncBackgroundColorPicker() {
+    const hex = document.getElementById("background-color-hex").value;
+    if (/^#[0-9A-F]{6}$/i.test(hex)) {
+        document.getElementById("background-color").value = hex;
+        currentConfig.backgroundColor = hex;
+        updatePreview();
+    }
+}
+
+// Sincroniza campo hex do fundo com picker
+function syncBackgroundHexInput() {
+    const color = document.getElementById("background-color").value;
+    document.getElementById("background-color-hex").value = color;
+    currentConfig.backgroundColor = color;
+    updatePreview();
+}
+
+// Atualiza o tamanho do ícone
+function updateIconSize() {
+    const slider = document.getElementById("icon-size");
+    const size = slider.value;
+    currentConfig.iconSize = parseInt(size);
+    document.getElementById("icon-size-value").textContent = size + "%";
+    
+    // Atualiza o gradiente da barra
+    const percentage = ((size - 20) / (95 - 20)) * 100;
+    const isDarkMode = !document.body.classList.contains("light-mode");
+    const trackColor = isDarkMode ? "#2a2a2a" : "#e0e0e0";
+    slider.style.background = `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${percentage}%, ${trackColor} ${percentage}%, ${trackColor} 100%)`;
+    
+    updatePreview();
+}
+
 // Aplica as alterações dos inputs
 function applyChanges() {
     currentConfig.svgPath = document.getElementById("svg-path").value.trim();
+    currentConfig.viewBoxX = parseInt(document.getElementById("viewbox-x").value) || 0;
+    currentConfig.viewBoxY = parseInt(document.getElementById("viewbox-y").value) || 0;
     currentConfig.viewBoxWidth = parseInt(document.getElementById("viewbox-width").value) || 640;
     currentConfig.viewBoxHeight = parseInt(document.getElementById("viewbox-height").value) || 512;
     currentConfig.color1 = document.getElementById("color1").value;
@@ -163,6 +234,9 @@ function applyChanges() {
     currentConfig.colorCount = parseInt(document.getElementById("color-count").value);
     currentConfig.gradientType = document.getElementById("gradient-type").value;
     currentConfig.gradientDirection = document.getElementById("gradient-direction").value;
+    currentConfig.hasBackground = document.getElementById("has-background").checked;
+    currentConfig.backgroundColor = document.getElementById("background-color").value;
+    currentConfig.iconSize = parseInt(document.getElementById("icon-size").value);
 
     updatePreview();
 }
@@ -182,8 +256,13 @@ async function saveIcon() {
     canvas.width = size;
     canvas.height = size;
 
-    // Limpa o canvas (fundo transparente)
+    // Limpa o canvas e desenha o fundo se necessário
     ctx.clearRect(0, 0, size, size);
+    
+    if (currentConfig.hasBackground) {
+        ctx.fillStyle = currentConfig.backgroundColor;
+        ctx.fillRect(0, 0, size, size);
+    }
 
     // Cria o gradiente
     let gradient;
@@ -224,9 +303,10 @@ async function saveIcon() {
     ctx.save();
     ctx.translate(size / 2, size / 2);
 
-    // Calcula escala para manter proporção
-    const scaleX = (size * 0.7) / currentConfig.viewBoxWidth;
-    const scaleY = (size * 0.7) / currentConfig.viewBoxHeight;
+    // Calcula escala para manter proporção usando o tamanho configurado
+    const iconSizeRatio = currentConfig.iconSize / 100;
+    const scaleX = (size * iconSizeRatio) / currentConfig.viewBoxWidth;
+    const scaleY = (size * iconSizeRatio) / currentConfig.viewBoxHeight;
     const scale = Math.min(scaleX, scaleY);
 
     ctx.scale(scale, scale);
@@ -284,6 +364,8 @@ document.getElementById("themeToggle").addEventListener("click", toggleTheme);
 
 // Atualiza automaticamente quando qualquer campo muda
 document.getElementById("svg-path").addEventListener("input", applyChanges);
+document.getElementById("viewbox-x").addEventListener("input", applyChanges);
+document.getElementById("viewbox-y").addEventListener("input", applyChanges);
 document.getElementById("viewbox-width").addEventListener("input", applyChanges);
 document.getElementById("viewbox-height").addEventListener("input", applyChanges);
 document.getElementById("color1").addEventListener("input", () => syncHexInput(1));
@@ -301,9 +383,14 @@ document.getElementById("gradient-type").addEventListener("change", () => {
     applyChanges();
 });
 document.getElementById("gradient-direction").addEventListener("change", applyChanges);
+document.getElementById("has-background").addEventListener("change", updateBackgroundVisibility);
+document.getElementById("background-color").addEventListener("input", syncBackgroundHexInput);
+document.getElementById("background-color-hex").addEventListener("input", syncBackgroundColorPicker);
+document.getElementById("icon-size").addEventListener("input", updateIconSize);
 
 // Inicializa
 initTheme();
 initInputs();
 updatePreview();
 toggleDirectionField();
+updateIconSize(); // Inicializa a barra com o gradiente correto
