@@ -1,7 +1,7 @@
 # My-Sandbox
 
 ## [Gerador de ícones em png](https://mathluz.github.io/My-Sandbox/gerador-icone/)
-Ferramenta para criar ícones personalizados em png 512x512. Cole seu código SVG, escolha as cores do icone, e o baixe.
+Ferramenta para criar ícones personalizados em png 512x512. Cole seu código SVG, escolha as cores do icone, e o baixe. [Criar favicones](https://favicon.io/favicon-converter/)
 
 ## [Lanterna](https://mathluz.github.io/My-Sandbox/lanterna/)
 Efeito de lanterna que ilumina uma área circular ao redor do cursor do mouse.

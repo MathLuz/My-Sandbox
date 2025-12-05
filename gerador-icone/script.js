@@ -299,18 +299,30 @@ async function saveIcon() {
     // Cria o path e desenha
     const path = new Path2D(currentConfig.svgPath);
 
-    // Escala e centraliza o path
+    // Escala e posiciona o path considerando o viewBox completo
     ctx.save();
-    ctx.translate(size / 2, size / 2);
-
+    
     // Calcula escala para manter proporção usando o tamanho configurado
     const iconSizeRatio = currentConfig.iconSize / 100;
     const scaleX = (size * iconSizeRatio) / currentConfig.viewBoxWidth;
     const scaleY = (size * iconSizeRatio) / currentConfig.viewBoxHeight;
     const scale = Math.min(scaleX, scaleY);
-
+    
+    // Calcula dimensões reais do ícone no canvas
+    const iconWidth = currentConfig.viewBoxWidth * scale;
+    const iconHeight = currentConfig.viewBoxHeight * scale;
+    
+    // Centraliza o ícone no canvas
+    const offsetX = (size - iconWidth) / 2;
+    const offsetY = (size - iconHeight) / 2;
+    
+    // Aplica transformações
+    ctx.translate(offsetX, offsetY);
     ctx.scale(scale, scale);
-    ctx.translate(-currentConfig.viewBoxWidth / 2, -currentConfig.viewBoxHeight / 2);
+    
+    // Translada para compensar o x,y do viewBox (para mostrar a área correta)
+    ctx.translate(-currentConfig.viewBoxX, -currentConfig.viewBoxY);
+    
     ctx.fill(path);
     ctx.restore();
 
